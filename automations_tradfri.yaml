@@ -1,0 +1,17 @@
+# Automation um Farben zu ändern
+- id: Farbwechsel vorwärts
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: fernbedienung_wohnzimmer
+      event: 5002
+  action:
+  - service: light.turn_on
+    entity_id: light.licht_wohnzimmer
+    data_template:
+      transition: 1
+      rgb_color:
+      - '{{ states("sensor.rgb_color").split(",")[0] }}'
+      - '{{ states("sensor.rgb_color").split(",")[1] }}'
+      - '{{ states("sensor.rgb_color").split(",")[2] }}'

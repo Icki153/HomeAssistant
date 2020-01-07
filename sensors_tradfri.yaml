@@ -1,0 +1,22 @@
+#Sensor für RGB Farben
+     rgb_color:
+        friendly_name: rgb_color
+        value_template: >-
+          {% if state_attr('light.kugellampe','rgb_color') == (255,203,120) %} 255,228,183
+          {% elif state_attr('light.kugellampe','rgb_color') == (255,227,183) %} 255,184,82
+          {% elif state_attr('light.kugellampe','rgb_color') == (255,184,82) %} 255,0,0
+          {% elif state_attr('light.kugellampe','rgb_color') == (255,0,0) %} 255,25,73
+          {% elif state_attr('light.kugellampe','rgb_color') == (255,29,76) %} 255,160,121
+          {% elif state_attr('light.kugellampe','rgb_color') == (255,160,121) %} 255,166,0
+          {% elif state_attr('light.kugellampe','rgb_color') == (255,166,0) %} 255,210,0
+          {% elif state_attr('light.kugellampe','rgb_color') == (255,210,0) %} 254,255,0
+          {% elif state_attr('light.kugellampe','rgb_color') == (252,255,0) %} 0,255,0
+          {% elif state_attr('light.kugellampe','rgb_color') == (0,255,0) %} 70,255,236
+          {% elif state_attr('light.kugellampe','rgb_color') == (70,255,236) %} 146,224,255
+          {% elif state_attr('light.kugellampe','rgb_color') == (146,224,255) %} 10,0,255
+          {% elif state_attr('light.kugellampe','rgb_color') == (19,8,255) %} 172,42,255
+          {% elif state_attr('light.kugellampe','rgb_color') == (173,45,255) %} 253,11,255
+          {% elif state_attr('light.kugellampe','rgb_color') == (251,19,255) %} 255,190,203
+          {% elif state_attr('light.kugellampe','rgb_color') == (255,190,203) %} 160,128,255
+          {% else %} 255,205,119
+          {% endif %}
