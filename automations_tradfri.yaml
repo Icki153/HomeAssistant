@@ -1,11 +1,16 @@
-# Automation um Farben zu ändern
+#####################################
+#############Wohnzimmer##############
+#####################################
+
+### Automation um Farben zu ändern###
 - id: Farbwechsel vorwärts
+  alias: Farbwechsel vorwärts
   trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: fernbedienung_wohnzimmer
+  - event_data:
       event: 5002
+      id: fernbedienung_wohnzimmer
+    event_type: deconz_event
+    platform: event
   action:
   - service: light.turn_on
     entity_id: light.licht_wohnzimmer
@@ -17,12 +22,13 @@
       - '{{ states("sensor.rgb_color").split(",")[2] }}'
       
 - id: Farbwechsel rückwärts
+  alias: Farbwechsel rückwärts
   trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: fernbedienung_wohnzimmer
+  - event_data:
       event: 4002
+      id: fernbedienung_wohnzimmer
+    event_type: deconz_event
+    platform: event
   action:
   - service: light.turn_on
     entity_id: light.licht_wohnzimmer
@@ -32,3 +38,18 @@
       - '{{ states("sensor.rgb_color_invert").split(",")[0] }}'
       - '{{ states("sensor.rgb_color_invert").split(",")[1] }}'
       - '{{ states("sensor.rgb_color_invert").split(",")[2] }}'
+
+### Lampen einschalten ###
+- id: Wohnzimmer ein/ausschalten
+  alias: Wohnzimmer ein/ausschalten
+  trigger:
+  - event_data:
+      event: 1002
+      id: fernbedienung_wohnzimmer
+    event_type: deconz_event
+    platform: event
+  action:
+  - device_id: 7ace91ca368c4663ba91858fe34eedbb
+    domain: light
+    entity_id: light.licht_wohnzimmer
+    type: toggle

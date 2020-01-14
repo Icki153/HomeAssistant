@@ -20,7 +20,7 @@
           {% elif state_attr('light.kugellampe','rgb_color') == (173,45,255) %} 253,11,255 
           {% elif state_attr('light.kugellampe','rgb_color') == (251,19,255) %} 255,190,203 
           {% elif state_attr('light.kugellampe','rgb_color') == (255,190,203) %} 160,128,255 
-          {% else %} 255,205,119 #Alltag
+          {% else %} 255,205,119
           {% endif %}
      rgb_color_invert:
         friendly_name: rgb_color_invert
@@ -41,5 +41,5 @@
           {% elif state_attr('light.kugellampe','rgb_color') == (255,29,76) %} 255,0,0 
           {% elif state_attr('light.kugellampe','rgb_color') == (255,0,0) %} 255,184,82 
           {% elif state_attr('light.kugellampe','rgb_color') == (255,184,82) %} 255,228,183 
-          {% else %} 255,205,119 #Alltag
+          {% else %} 255,205,119
           {% endif %}
